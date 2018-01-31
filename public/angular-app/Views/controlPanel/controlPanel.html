@@ -1,0 +1,373 @@
+<section id="main">
+  <div class="container">
+    <div class="row">
+      <div class="col-md-3">
+        <div class="list-group">
+          <a href="index.html" class="list-group-item active main-color-bg">
+            <span class="glyphicon glyphicon-cog" aria-hidden="true"></span> Dashboard</a>
+          <a href="" ng-click="vm.controlVisible()" class="list-group-item"><span class="glyphicon glyphicon-list-alt" aria-hidden="true"></span> Control Panel </a>
+          <a href="" ng-click="vm.sujestionVisible()" class="list-group-item"><span class="glyphicon glyphicon-list-alt" aria-hidden="true"></span> Sujestions <span class="badge">{{vm.subjects.length}}</span></a>
+          <a href="" ng-click="vm.postsVisible()" class="list-group-item"><span class="glyphicon glyphicon-pencil" aria-hidden="true"></span> Posts <span class="badge">{{vm.debates.length}}</span></a>
+          <a href="" ng-click="vm.usersVisible()" class="list-group-item"><span class="glyphicon glyphicon-user" aria-hidden="true"></span> Users <span class="badge">{{vm.users.length}}</span></a>
+          <a href="" ng-click="vm.topicVisible()" class="list-group-item"><span class="glyphicon glyphicon-cog" aria-hidden="true"></span> Topic <span class="badge">{{vm.topics.length}}</span></a>
+          <a href="" ng-click="vm.newsVisible()" class="list-group-item"><span class="fa fa-newspaper-o" aria-hidden="true"></span> News <span class="badge">{{vm.topics.length}}</span></a>
+        </div>
+
+        <div class="well">
+          <h4>Disk Space Used</h4>
+          <div class="progress">
+              <div class="progress-bar" role="progressbar" aria-valuenow="60" aria-valuemin="0" aria-valuemax="100" style="width: 60%;">
+                  60%
+          </div>
+        </div>
+        <h4>Bandwidth Used </h4>
+        <div class="progress">
+            <div class="progress-bar" role="progressbar" aria-valuenow="40" aria-valuemin="0" aria-valuemax="100" style="width: 40%;">
+                40%
+        </div>
+      </div>
+        </div>
+      </div>
+
+      <!-- RIGHT SIDE -->
+
+      <div class="col-md-9">
+        <div id="Overview" class="panel panel-default">
+          <div class="panel-heading main-color-bg">
+            <h3 class="panel-title">Website Overview</h3>
+          </div>
+          <div class="panel-body">
+            <div class="col-md-3">
+              <div class="well dash-box">
+                <h2><span class="glyphicon glyphicon-user" aria-hidden="true"></span> {{vm.users.length}}</h2>
+                <h4>Users {{vm.adm}}</h4>
+              </div>
+            </div>
+            <div class="col-md-3">
+              <div class="well dash-box">
+                <h2><span class="glyphicon glyphicon-list-alt" aria-hidden="true"></span> {{vm.subjects.length}}</h2>
+                <h4>Sujestions</h4>
+              </div>
+            </div>
+            <div class="col-md-3">
+              <div class="well dash-box">
+                <h2><span class="glyphicon glyphicon-pencil" aria-hidden="true"></span> {{vm.debates.length}}</h2>
+                <h4>Posts</h4>
+              </div>
+            </div>
+            <div class="col-md-3">
+              <div class="well dash-box">
+                <h2><span class="glyphicon glyphicon-stats" aria-hidden="true"></span> 12,334</h2>
+                <h4>Visitors</h4>
+              </div>
+            </div>
+          </div>
+          </div>
+
+          <!-- Latest Users -->
+          <div id="latestUsers" class="panel panel-default">
+            <div class="panel-heading main-color-bg">
+              <h3 class="panel-title">Latest Users</h3>
+            </div>
+            <div class="panel-body">
+              <table class="table table-striped table-hover">
+                  <tr>
+                    <th>Name</th>
+                    <th>Email</th>
+                    <!--<th>Password</th>-->
+                    <th>ADM</th>
+                  </tr>
+                  <tr>
+                  <tr class="post" ng-repeat="user in vm.users | orderBy:'createdOn':true">
+                    <td>{{user.username}}</td>
+                    <td>{{user.email}}</td>
+                    <!--<td>{{user.password}}</td>-->
+                    <td>{{user.adm}}</td>
+                  </tr>
+                </table>
+            </div>
+          </div>
+
+          <!-- USERS -->
+          <div id="users" class="">
+            <!-- Website Overview -->
+            <div class="panel panel-default">
+              <div class="panel-heading main-color-bg">
+                <h3 class="panel-title">Users</h3>
+              </div>
+              <div class="panel-body">
+                <div class="row">
+                      <div class="col-md-12">
+                          <input class="form-control" type="text" placeholder="Filter Users..." ng-model="searchUsers" />
+                      </div>
+                </div>
+                <br>
+                <table class="table table-striped table-hover">
+                      <tr>
+                        <th>Name</th>
+                        <th>Email</th>
+                        <th>ADM</th>
+                        <th></th>
+                        <th></th>
+                      </tr>
+                      <tr>
+                        <td><input id="username" required type="username" class="form-control" name="username" placeholder="Username" ng-model="vm.username" autocapitalize="none"></td>
+                        <td><input id="email" required type="email" class="form-control" name="email" placeholder="Email" ng-model="vm.email" autocapitalize="none"></td>
+                        <td><input id="tipo" required type="text" class="form-control" name="tipo" placeholder="Tipo" ng-model="vm.tipo" autocapitalize="none"></td>
+                        <td><button id="btnControl" type="submit" class="btn btn-info" ng-click="vm.update()">Save</button></td>
+                        <td></td>
+                      </tr>
+                      <tr class="post" ng-repeat="user in vm.users | filter:searchUsers | orderBy:'createdOn':true ">
+                        <td>{{user.username}}</td>
+                        <td>{{user.email}}</td>
+                        <td>{{user.adm}}</td>
+                        <td><button id="btnControl" type="submit" class="btn btn-primary" ng-click="vm.edit(user)">Edit</button></td>
+                        <td><button id="btnControl" type="submit" class="btn btn-danger" ng-click="vm.delete(user._id)">Delete</button></td>
+                      </tr>
+                    </table>
+              </div>
+              </div>
+
+          </div>
+
+          <!-- SUJESTIONS -->
+          <div id="sujestion" class="">
+            <!-- Website Overview -->
+            <div class="panel panel-default">
+              <div class="panel-heading main-color-bg">
+                <h3 class="panel-title">Sujestions</h3>
+              </div>
+              <div class="panel-body">
+                <div class="row">
+                      <div class="col-md-12">
+                          <input class="form-control" type="text" placeholder="Filter Pages..." ng-model="searchSujestion"/>
+                      </div>
+                </div>
+                <br>
+                <table class="table table-striped table-hover">
+                      <tr>
+                        <th>Topic</th>
+                        <th>Sujestion</th>
+                        <th>Votes</th>
+                        <th>Created</th>
+                        <th>Status</th>
+                        <th></th>
+                        <th></th>
+                      </tr>
+                      <tr>
+                        <td><input id="topic" required type="username" class="form-control" name="topic" placeholder="Topic" ng-model="vm.topic" autocapitalize="none"></td>
+                        <td><input id="sujestio" required type="text" name="sujestion" class="form-control" placeholder="Sujestion" ng-model="vm.sujestion" autocapitalize="none"></td>
+                        <td><input id="votes" required type="text" name="votes" class="form-control" placeholder="Votes" ng-model="vm.votes" autocapitalize="none"></td>
+                        <td><input id="createdOn" required type="text" class="form-control" name="createdOn" placeholder="CreatedOn" ng-model="vm.createdOn" autocapitalize="none"></td>
+                        <td><input id="active" required type="text" class="form-control" name="active" placeholder="Status" ng-model="vm.active" autocapitalize="none"></td>
+                        <td><button id="btnControl" type="submit" class="btn btn-info" ng-click="vm.updateSujestion()">Save</button></td>
+                        <td></td>
+                      </tr>
+                      <tr class="post" ng-repeat="subject in vm.subjects | filter:searchSujestion | orderBy:'createdOn':true ">
+                        <td>{{subject.topic}}</td>
+                        <td>{{subject.subject}}</td>
+                        <td>{{subject.votes}}</td>
+                        <td>{{subject.createdOn | date:'dd/MM/yyyy HH:mm'}}</td>
+                        <td>{{subject.active}}</td>
+                        <td><button id="btnControl" type="submit" class="btn btn-primary" ng-click="vm.editSujestion(subject)">Edit</button></td>
+                        <td><button id="btnControl" type="submit" class="btn btn-danger" ng-click="vm.deleteSujestion(subject._id)">Delete</button></td>
+                      </tr>
+                    </table>
+              </div>
+              </div>
+
+          </div>
+
+          <!-- POSTS -->
+          <div id="posts" class="">
+            <!-- Website Overview -->
+            <div class="panel panel-default">
+              <div class="panel-heading main-color-bg">
+                <h3 class="panel-title">Posts</h3>
+              </div>
+              <div class="panel-body">
+                <div class="row">
+                      <div class="col-md-12">
+                          <input class="form-control" type="text" placeholder="Filter Posts..." ng-model="searchPost">
+                      </div>
+                </div>
+              </br>
+                <table class="table table-striped table-hover">
+                  <tr>
+                    <th>Topic</th>
+                    <th>Subject</th>
+                    <th>Userlimit</th>
+                    <th>Created</th>
+                    <th></th>
+                    <th></th>
+                  </tr>
+                  <tr>
+                    <td><input id="topicDebate" required type="username" class="form-control" name="topic" placeholder="Topic" ng-model="vm.topicDebate" autocapitalize="none"></td>
+                    <td><input id="subjectDebate" required type="text" class="form-control" name="sujestion" placeholder="Subject" ng-model="vm.subjectDebate" autocapitalize="none"></td>
+                    <td><input id="userlimit" required type="text" class="form-control" name="sujestion" placeholder="Userlimit" ng-model="vm.userLimit" autocapitalize="none"></td>l
+                    <td><input id="createdOnDebate" required type="text" class="form-control" name="createdOn" placeholder="CreatedOn" ng-model="vm.createdOnDebate" autocapitalize="none"></td>
+                    <td><button id="btnControl" type="submit" class="btn btn-info" ng-click="vm.updateConversations()">Save</button></td>
+                    <td></td>
+                  </tr>
+                  <tr class="post" ng-repeat="debate in vm.debates | filter:searchPost | orderBy:'createdOn':true ">
+                    <td>{{debate.topic}}</td>
+                    <td><a id="posts" href="" data-toggle="modal" data-target="#myModal" ng-click="vm.getConversation(debate._id)">{{debate.subject}}</a></td>
+                    <td>{{debate.userLimit}}</td>
+                    <td>{{debate.createdOn | date:'dd/MM/yyyy HH:mm'}}</td>
+                    <td><button id="btnControl" type="submit" class="btn btn-primary" ng-click="vm.editConversations(debate)">Edit</button></td>
+                    <td><button id="btnControl" type="submit" class="btn btn-danger" ng-click="vm.deleteDebate(debate._id)">Delete</button></td>
+                  </tr>
+                </table>
+              </div>
+            </div>
+          </div>
+
+          <!-- GRID Post -->
+          <div id="myModal" class="modal fade" role="dialog">
+            <div class="modal-dialog">
+
+              <!-- Modal content-->
+              <div class="modal-content">
+                <div class="modal-header">
+                  <button type="button" class="close" data-dismiss="modal">&times;</button>
+                  <h4 class="modal-title">Debate</h4>
+                </div>
+                <div class="modal-body">
+                  <table class="table table-striped table-hover">
+                        <tr>
+                          <th>User</th>
+                          <th>Coment</th>
+                          <th>Created</th>
+                          <th></th>
+                        </tr>
+                        <tr>
+                          <!--<td><input id="userC" required type="username" class="form-control" name="topic" placeholder="User" ng-model="vm.topic" autocapitalize="none"></td>
+                          <td><input id="comentC" required type="text" name="sujestion" class="form-control" placeholder="Coment" ng-model="vm.sujestion" autocapitalize="none"></td>
+                          <td><input id="createdOnC" required type="text" class="form-control" name="createdOn" placeholder="CreatedOn" ng-model="vm.createdOn" autocapitalize="none"></td>
+                          <td><button id="btnControl" type="submit" class="btn btn-info" ng-click="vm.updateSujestion()">Save</button></td>
+                          <td></td>-->
+                        </tr>
+                        <tr></tr>
+                        <tr class="post" ng-repeat="conversation in vm.conversations | filter:searchSujestion | orderBy:'createdOn':true ">
+                          <td>{{conversation.user}}</td>
+                          <td>{{conversation.coment}}</td>
+                          <td>{{conversation.createdOn | date:'dd/MM/yyyy HH:mm'}}</td>
+                          <!--<td><button id="btnControl" type="submit" class="btn btn-primary" ng-click="vm.editConversation">Edit</button></td>-->
+                          <td><button id="btnControl" type="submit" class="btn btn-danger" ng-click="vm.deleteConversation(conversation._id)">Delete</button></td>
+                        </tr>
+                  </table>
+                </div>
+                <div class="modal-footer">
+                  <button type="button" class="btn btn-success" data-dismiss="modal">OK</button>
+                </div>
+              </div>
+            </div>
+          </div>
+
+
+          <!-- TOPICS -->
+          <div id="topics" class="">
+            <!-- Website Overview -->
+            <div class="panel panel-default">
+              <div class="panel-heading main-color-bg">
+                <h3 class="panel-title">Topics</h3>
+              </div>
+              <div class="panel-body">
+                <div class="row">
+                      <div class="col-md-12">
+                          <input class="form-control" type="text" placeholder="Filter Topics..." ng-model="searchPost">
+                      </div>
+                </div>
+              </br>
+                <table class="table table-striped table-hover">
+                  <tr>
+                    <th>Topic</th>
+                    <th>User</th>
+                    <th>Created</th>
+                    <th></th>
+                    <th></th>
+                    <th></th>
+                  </tr>
+                  <tr>
+                    <td><input id="topicT" required type="username" class="form-control" name="topic" placeholder="Topic" ng-model="vm.topicT" autocapitalize="none"></td>
+                    <td><input id="userT" required type="text" class="form-control" name="user" placeholder="User" ng-model="vm.userT" autocapitalize="none"></td>
+                    <td><input id="createdOnT" required type="text" class="form-control" name="createdOn" placeholder="CreatedOn" ng-model="vm.createdOnT" autocapitalize="none"></td>
+                    <td><button id="btnControl" type="submit" class="btn btn-success" ng-click="vm.addTopic()">Add</button></td>
+                    <td><button id="btnControl" type="submit" class="btn btn-info" ng-click="vm.updateConversations()">Save</button></td>
+                    <td></td>
+                  </tr>
+                  <tr class="post" ng-repeat="topic in vm.topics | filter:searchPost | orderBy:'createdOn':true ">
+                    <td>{{topic.topic}}</td>
+                    <td>{{topic.user}}</td>
+                    <td>{{topic.createdOn | date:'dd/MM/yyyy HH:mm'}}</td>
+                    <td><button id="btnControl" type="submit" class="btn btn-primary" ng-click="vm.editConversations(debate)">Edit</button></td>
+                    <td><button id="btnControl" type="submit" class="btn btn-danger" ng-click="vm.deleteDebate(debate._id)">Delete</button></td>
+                  </tr>
+                </table>
+              </div>
+            </div>
+          </div>
+
+
+          <!-- NEWS -->
+          <div id="news" class="">
+            <!-- Website Overview -->
+            <div class="panel panel-default">
+              <div class="panel-heading main-color-bg">
+                <h3 class="panel-title">News</h3>
+              </div>
+              <div class="panel-body">
+                <div class="row">
+                      <div class="col-md-12">
+                          <input class="form-control" type="text" placeholder="Filter News..." ng-model="searchSujestion"/>
+                      </div>
+                </div>
+                <br>
+                <table class="table table-striped table-hover">
+                      <tr>
+                        <th>Topic</th>
+                        <th>Sujestion</th>
+                        <!--<th>Created</th>
+                        <th>Status</th>-->
+                        <th>Image</th>
+                        <th></th>
+                        <th></th>
+                        <th></th>
+                        <th></th>
+                        <th></th>
+                      </tr>
+                      <tr>
+                        <td><input id="topicN" required type="username" class="form-control" name="topic" placeholder="Topic" ng-model="vm.topic" autocapitalize="none"></td>
+                        <td><input id="sujestionN" required type="text" name="sujestion" class="form-control" placeholder="Sujestion" ng-model="vm.sujestion" autocapitalize="none"></td>
+                        <!--<td><input id="createdOnN" required type="text" class="form-control" name="createdOn" placeholder="CreatedOn" ng-model="vm.createdOn" autocapitalize="none"></td>
+                        <td><input id="activeN" required type="text" class="form-control" name="active" placeholder="Status" ng-model="vm.active" autocapitalize="none"></td>-->
+                        <td><input type="file" id="inputFileToLoad" class="form-control" placeholder="photo" accept="image/*;capture=camera" name="userPhoto" single /></td>
+                        <td><button id="btnControl" type="submit" class="btn btn-success" ng-click="vm.addNews()">Add</button></td>
+                        <td><button id="btnControl" type="submit" class="btn btn-info" ng-click="vm.updateSujestion()">Save</button></td>
+                        <td></td>
+                      </tr>
+                      <tr class="post" ng-repeat="subject in vm.subjects | filter:searchSujestion | orderBy:'createdOn':true ">
+                        <td>{{subject.topic}}</td>
+                        <td>{{subject.subject}}</td>
+                        <!--<td>{{subject.createdOn | date:'dd/MM/yyyy HH:mm'}}</td>
+                        <td>{{subject.active}}</td>-->
+                        <td></td>
+                        <td><button id="btnControl" type="submit" class="btn btn-primary" ng-click="vm.editSujestion(subject)">Edit</button></td>
+                        <td><button id="btnControl" type="submit" class="btn btn-danger" ng-click="vm.deleteSujestion(subject._id)">Delete</button></td>
+                        <td></td>
+                        <td></td>
+                        <!--<td><button type="file" id="inputFileToLoad" class="btn btn-warning" placeholder="Photo" accept="image/*;capture=camera" name="userPhoto" ng-click="" single>Image</button></td>-->
+                      </tr>
+                    </table>
+              </div>
+              </div>
+
+          </div>
+
+
+      </div>
+
+
+    </div>
+  </div>
+</section>

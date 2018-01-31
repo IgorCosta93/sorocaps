@@ -1,0 +1,142 @@
+<div id="container" class="container" ng-if="vm.isLoggedIn()" ng-init="vm.UserName()">
+
+  <div id="debate" class="container" ng-if="vm.isLoggedIn()" ng-init="vm.UserName()">
+    <!-- DEBATES -->
+    <div id="message" ng-if="vm.message" class="alert alert-success" role="alert" ng-hide="vm.hideLoader">
+      <p>{{ vm.message }}</p>
+    </div>
+    <div id="sujestion" class="">
+      <!-- Website Overview -->
+      <div class="panel panel-default">
+        <div class="panel-heading main-color-bg">
+          <h3 class="panel-title">Debates</h3>
+        </div>
+        <div class="panel-body">
+          <div class="row">
+                <div class="col-md-12">
+                    <input class="form-control" type="text" placeholder="Filter Debates..." ng-model="searchSujestion"/>
+                </div>
+          </div>
+          <br>
+          <table class="table table-striped table-hover">
+                <tr>
+                  <th>Debates</th>
+                  <th></th>
+                  <!--<th>Votes</th>-->
+                  <th></th>
+                  <th></th>
+                  <th></th>
+                  <th></th>
+                </tr>
+                <tr id="UserL" class="post" ng-repeat="debate in vm.debates | filter:searchSujestion | orderBy:'createdOn':true ">
+                  <td><i class="fa fa-university" aria-hidden="true"></i></td>
+                  <td><a href="#!/chat/{{debate._id}}" class="fill-div">
+                    <b>Topic</b>: {{debate.topic}}<br>
+                    <b>Subject</b>: {{debate.subject}}</a>
+                  </td>
+                  <td></td>
+                  <td></td>
+                  <td></td>
+                  <td>
+                    {{debate.createdOn | date:'dd/MM/yyyy'}}<br>
+                    <i class="fa fa-comments" aria-hidden="true"></i>&nbsp;<span class="badge">2</span>
+                  </td>
+                  <!--<td ng-repeat="user in subject.users" ng-show="false">{{user.user}}</td>
+                  <!--<td><button type="button" class="btn btn-success" ng-click="vm.verifyVote(subject._id)">TESTE</button></td>
+                  <td><button type="button" class="btn btn-primary" ng-click="vm.vote(subject)">SIM</button></td>
+
+                  <td><button type="button" class="btn btn-primary" ng-click="vm.verifyVote(subject._id)">SIM</button></td>
+                  <td><button type="button" class="btn btn-danger" ng-click="vm.voteN(subject._id)">NÃO</button></td>-->
+                  <td ng-repeat="user in subject.users" ng-show="user.user == vm.loggedInUser"><i class="fa fa-check-circle" aria-hidden="true"></i></td>
+                </tr>
+              </table>
+        </div>
+        </div>
+
+    </div>
+
+  </div>
+
+
+  <div id="request" class="container" ng-if="vm.isLoggedIn()" ng-init="vm.UserName()">
+    <!-- REQUESTS  -->
+    <div id="message" ng-if="vm.message" class="alert alert-success" role="alert" ng-hide="vm.hideLoader">
+      <p>{{ vm.message }}</p>
+    </div>
+    <div id="sujestion" class="">
+      <!-- Website Overview -->
+      <div class="panel panel-default">
+        <div class="panel-heading main-color-bg">
+          <h3 class="panel-title">Requests</h3>
+        </div>
+        <div class="panel-body">
+          <div class="row">
+                <div class="col-md-12">
+                    <input id="search" class="form-control" type="text" placeholder="Filter Requests..." ng-model="searchSujestion"/>
+                </div>
+          </div>
+          <br>
+          <table class="table table-striped table-hover">
+                <tr>
+                  <th>Debates</th>
+                  <th></th>
+                  <!--<th>Votes</th>-->
+                  <th></th>
+                  <th></th>
+                  <th></th>
+                  <th></th>
+                </tr>
+                <tr id="UserL" class="post" ng-repeat="debates in vm.debate | filter:searchSujestion | orderBy:'createdOn':true " ng-show="vm.debateR(debates.notification)">
+                  <td><i class="fa fa-university" aria-hidden="true"></i></td>
+                  <td><a href="#!/chat/{{debate._id}}" class="fill-div">
+                    <b>Topic</b>: {{debates.topic}}<br>
+                    <b>Subject</b>: {{debates.subject}}</a>
+                  </td>
+                  <td></td>
+                  <td></td>
+                  <td></td>
+                  <td>
+                    <button id="btnDeniedN" type="button" class="btn btn-danger btn-circle"><i class="glyphicon glyphicon-remove" ng-click="vm.removeNotification(debates)"></i></button>
+                    <!--<button id="btnAcceptN" type="button" class="btn btn-success btn-circle"><i class="glyphicon glyphicon-ok" ng-click="vm.addUserInDebate(debates)"></i></button>-->
+                    <button id="btnAcceptN" type="button" class="btn btn-success btn-circle"><i class="glyphicon glyphicon-ok" aria-hidden="true" data-toggle="modal" data-target="#myModal" readonly="true" ng-click="vm.debateInfo=debates"></i></button>
+                  </td>
+                  <!--<td ng-repeat="user in subject.users" ng-show="false">{{user.user}}</td>
+                  <!--<td><button type="button" class="btn btn-success" ng-click="vm.verifyVote(subject._id)">TESTE</button></td>
+                  <td><button type="button" class="btn btn-primary" ng-click="vm.vote(subject)">SIM</button></td>
+
+                  <td><button type="button" class="btn btn-primary" ng-click="vm.verifyVote(subject._id)">SIM</button></td>
+                  <td><button type="button" class="btn btn-danger" ng-click="vm.voteN(subject._id)">NÃO</button></td>-->
+                  <td ng-repeat="user in subject.users" ng-show="user.user == vm.loggedInUser"><i class="fa fa-check-circle" aria-hidden="true"></i></td>
+                </tr>
+              </table>
+        </div>
+        </div>
+
+    </div>
+
+  </div>
+  <div id="myModal" class="modal fade" role="dialog">
+    <div class="modal-dialog">
+
+      <!-- Modal content-->
+      <div class="modal-content">
+        <div class="modal-header">
+          <button type="button" class="close" data-dismiss="modal">&times;</button>
+          <h4 class="modal-title">Confirmação</h4>
+        </div>
+        <div class="modal-body">
+          <p>Which how many people would you like to talk?</p>
+        </div>
+        <div class="modal-footer">
+          <button type="button" class="btn btn-primary" data-dismiss="modal" ng-click="vm.addUserInDebate(1)">Favor</button>
+          <button type="button" class="btn btn-danger" data-dismiss="modal" ng-click="vm.addUserInDebate(2)">Against</button>
+          <button type="button" class="btn btn-danger" data-dismiss="modal" ng-click="vm.addUserInDebate(3)">Neutral</button>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+<!--<p>{{vm.userNotification}}</p>
+<ul ng-repeat="subject in vm.subjects">
+  <li ng-repeat="subjectN in subject.notification">{{subjectN.user}}</li>
+</ul>-->

@@ -1,0 +1,53 @@
+<div id='container' class="container" ng-show="!vm.isLoggedIn()">
+  <h1>Para sugerir um tema eh necessario estar logado.</h1>
+</div>
+
+<div id="container" class="container" ng-if="vm.isLoggedIn()">
+  <br>
+  <a id = "btnVoltar" href="javascript:window.history.go(-1)" class=""><i class="fa fa-arrow-left" aria-hidden="true"></i></a>
+  <div id="sujestBox">
+    <!--
+    <div ng-if="vm.message" class="alert alert-success" role="alert">
+      <p>{{ vm.message }}</p>
+    </div>
+    <div ng-if="vm.error" class="alert alert-danger" role="alert">
+      {{ vm.error }}
+    </div>-->
+
+    <div class="col-md-offset-2 col-md-8">
+      <div class="clearfix">
+        <!--<form id = "sujestion" ng-hide="vm.message" ng-Submit="vm.postSujestion()">-->
+        <form id = "sujestion" ng-hide="vm.message" ng-Submit="vm.postSujestion()">
+
+            <h1>Subject</h1>
+
+            <input id="topic" type="text" class="form-control input-sm" placeholder="Tipe here your Topic sujestion." ng-model="vm.topic" autocapitalize="none" value="{{vm.topic}}" readonly="true">
+            <input type="text" class="form-control input-sm" placeholder="Tipe here your subject sujestion." ng-model="vm.subject" autocapitalize="none">
+            <input class="btn submit-btn pull-right btn-block" type="submit" value="GO!" data-toggle="modal" data-target="#myModal" readonly="true"/>
+
+        </form>
+      </div>
+    </div>
+  </div>
+
+  <div id="myModal" class="modal fade" role="dialog">
+    <div class="modal-dialog">
+
+      <!-- Modal content-->
+      <div class="modal-content">
+        <div class="modal-header">
+          <button type="button" class="close" data-dismiss="modal">&times;</button>
+          <h4 class="modal-title">Confirmação</h4>
+        </div>
+        <div class="modal-body">
+          <p ng-if="vm.message">{{ vm.message }}</p>
+          <p ng-if="vm.error">{{ vm.error }}</p>
+        </div>
+        <div class="modal-footer">
+          <button type="button" class="btn btn-primary" data-dismiss="modal">Close</button>
+        </div>
+      </div>
+    </div>
+  </div>
+
+</div>
