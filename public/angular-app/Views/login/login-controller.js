@@ -1,4 +1,4 @@
-angular.module('db8').controller('LoginController', LoginController);
+angular.module('sorocaps').controller('LoginController', LoginController);
 
 function LoginController($http, $location, $window, AuthFactory,debateFactory, jwtHelper,$timeout) {
   var vm = this;

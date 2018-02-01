@@ -1,4 +1,4 @@
-angular.module('db8').factory('AuthInterceptor', AuthInterceptor);
+angular.module('sorocaps').factory('AuthInterceptor', AuthInterceptor);
 
 function AuthInterceptor($location, $q, $window, AuthFactory) {
   return {

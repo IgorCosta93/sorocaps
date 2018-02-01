@@ -1,4 +1,4 @@
-angular.module('db8', ['ngRoute', 'angular-jwt']).config(config).run(run);
+angular.module('sorocaps', ['ngRoute', 'angular-jwt']).config(config).run(run);
 
 function config($httpProvider, $routeProvider) {
   $httpProvider.interceptors.push('AuthInterceptor');
@@ -20,46 +20,6 @@ function config($httpProvider, $routeProvider) {
         restricted: false
       }
     })
-    .when('/topics', {
-      templateUrl   : 'angular-app/Views/topics/topics.html',
-      controller    : TopicsController,
-      controllerAs  : 'vm',
-      access: {
-        restricted: false
-      }
-    })
-        .when('/topics/subjectoptions/:topic', {
-          templateUrl   : 'angular-app/Views/subjectOptions/subjectoptions.html',
-          controller    : subjectoptionsController,
-          controllerAs  : 'vm',
-          access: {
-            restricted: false
-          }
-        })
-        .when('/topics/availableSubjects/:topic', {
-          templateUrl   : 'angular-app/Views/AvailableSubjects/availablesubjects.html',
-          controller    : availablesubjectsController,
-          controllerAs  : 'vm',
-          access: {
-            restricted: false
-          }
-        })
-        .when('/topics/sujestsubject/:topic',{
-          templateUrl   : 'angular-app/Views/SujestSubject/sujestsubject.html',
-          controller    : sujestionController,
-          controllerAs  : 'vm',
-          access        : {
-            restricted : false
-          }
-        })
-        .when('/topics/subjectsinvoting/:topic', {
-          templateUrl   : 'angular-app/Views/subjectsInVoting/subjectsInVoting.html',
-          controller    : subVotingController,
-          controllerAs  : 'vm',
-          access        : {
-            restricted  : false
-          }
-        })
     .when('/profile', {
       templateUrl : 'angular-app/Views/profile/profile.html',
       controller    : profileController,
@@ -86,18 +46,16 @@ function config($httpProvider, $routeProvider) {
     })
     .when('/debates',{
       templateUrl   : 'angular-app/Views/debates/debates.html',
-      controller    : debatesController,
-      controllerAs  : 'vm',
+      //controller    : debatesController,
+      //controllerAs  : 'vm',
       access        : {
         restricted  : false
       }
     })
-    .when('/chat/:id',{
-      templateUrl   : 'angular-app/Views/chat/chat.html',
-      controller    : chatController,
-      controllerAs  : 'vm',
+    .when('/produtos',{
+      templateUrl   : 'angular-app/Views/produtos/produtos.html',
       access        : {
-        restricted : false
+        restricted  : false
       }
     })
     .otherwise({

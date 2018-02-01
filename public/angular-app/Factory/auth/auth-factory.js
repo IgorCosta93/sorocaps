@@ -1,4 +1,4 @@
-angular.module('db8').factory('AuthFactory', AuthFactory);
+angular.module('sorocaps').factory('AuthFactory', AuthFactory);
 
 function AuthFactory() {
   return {

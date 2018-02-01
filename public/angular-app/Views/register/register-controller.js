@@ -1,4 +1,4 @@
-angular.module('db8').controller('RegisterController', RegisterController);
+angular.module('sorocaps').controller('RegisterController', RegisterController);
 
 function RegisterController($http,$scope,$location){
   var vm = this;

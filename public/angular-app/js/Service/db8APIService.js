@@ -1,4 +1,4 @@
-angular.module("db8").service("db8APIService", function(debateFactory){
+angular.module("sorocaps").service("db8APIService", function(debateFactory){
   var idUserN = "";
   var user = "";
 

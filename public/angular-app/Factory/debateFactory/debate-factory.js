@@ -1,4 +1,4 @@
-angular.module('db8').factory('debateFactory', debateFactory);
+angular.module('sorocaps').factory('debateFactory', debateFactory);
 
 function debateFactory($http){
   return {

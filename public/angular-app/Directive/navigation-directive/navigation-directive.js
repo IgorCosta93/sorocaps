@@ -1,4 +1,4 @@
-angular.module('db8').directive('mhNavigation', mhNavigation);
+angular.module('sorocaps').directive('mhNavigation', mhNavigation);
 
 function mhNavigation() {
   return {

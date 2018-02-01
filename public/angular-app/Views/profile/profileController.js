@@ -1,4 +1,4 @@
-angular.module('db8').controller('profileController', profileController);
+angular.module('sorocaps').controller('profileController', profileController);
 
 function profileController($http, $scope, AuthFactory, debateFactory,$route, $routeParams,$window,jwtHelper){
     var vm = this;

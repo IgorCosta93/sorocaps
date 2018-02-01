@@ -1,4 +1,4 @@
-angular.module('db8').controller('MainController', MainController);
+angular.module('sorocaps').controller('MainController', MainController);
 
 function MainController($http, $scope, AuthFactory, debateFactory,$route, $routeParams, $window,jwtHelper,$timeout,db8APIService){
   var vm = this;

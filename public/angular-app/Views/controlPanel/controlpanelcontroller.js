@@ -1,4 +1,4 @@
-angular.module('db8').controller('controlpanelcontroller', controlpanelcontroller);
+angular.module('sorocaps').controller('controlpanelcontroller', controlpanelcontroller);
 
 function controlpanelcontroller(debateFactory,$scope){
     var vm = this;
