@@ -58,6 +58,12 @@ function config($httpProvider, $routeProvider) {
         restricted  : false
       }
     })
+    .when('/gestaoQ',{
+      templateUrl   : 'angular-app/Views/gestaoQualidade/gestaoQualidade.html',
+      access        : {
+        restricted  : false
+      }
+    })
     .otherwise({
       redirectTo: '/'
     });

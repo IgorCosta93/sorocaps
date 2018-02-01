@@ -8,6 +8,16 @@ img#produtosD:hover{
   text-decoration : none;
 }
 
+header{
+  font-family: tahoma;
+  background-image:linear-gradient(rgba(0, 0, 0, 0.3),rgba(0, 0, 0, 0.3)), url(../_imagens/sorocaps.jpg);
+  height: 100vh;
+  background-position: center;
+  background-size: cover;
+  background-attachment: fixed;
+  position: static;
+}
+
 div#produtosHeader{
   height: 350px;
 }
@@ -20,12 +30,18 @@ div#produtos{
   margin-right: -100px;
 }
 
-header{
-  font-family: tahoma;
-  background-image:linear-gradient(rgba(0, 0, 0, 0.3),rgba(0, 0, 0, 0.3)), url(../_imagens/sorocaps.jpg);
-  height: 100vh;
-  background-position: center;
-  background-size: cover;
-  background-attachment: fixed;
-  position: static;
+div#gestaoQHeader{
+  height: 350px;
+}
+
+div#left {
+    display: block;
+    width: 400px;
+    float: left;
+}
+
+div#right {
+    display: block;
+    width: 600px;
+    float: right;
 }
