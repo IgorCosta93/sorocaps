@@ -8,6 +8,24 @@ img#produtosD:hover{
   text-decoration : none;
 }
 
+div#produtosHeader{
+  height: 350px;
+}
+
+div#produtosContainer{
+  margin-left: 2.5%;
+}
+
 div#produtos{
-  height: 400px;
+  margin-right: -100px;
+}
+
+header{
+  font-family: tahoma;
+  background-image:linear-gradient(rgba(0, 0, 0, 0.3),rgba(0, 0, 0, 0.3)), url(../_imagens/sorocaps.jpg);
+  height: 100vh;
+  background-position: center;
+  background-size: cover;
+  background-attachment: fixed;
+  position: static;
 }
