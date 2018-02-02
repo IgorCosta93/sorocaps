@@ -76,6 +76,12 @@ function config($httpProvider, $routeProvider) {
         restricted  : false
       }
     })
+    .when('/trabalheConosco',{
+      templateUrl   : 'angular-app/Views/trabalheC/trabalheC.html',
+      access        : {
+        restricted  : false
+      }
+    })
     .otherwise({
       redirectTo: '/'
     });
