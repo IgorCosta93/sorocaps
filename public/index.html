@@ -16,11 +16,18 @@
     </title>
     <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.6.4/angular.min.js"></script>
     <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.6.4/angular-route.js"></script>
-    <!--   Core JS Files   -->
-    <script src="assets/js/core/jquery.min.js"></script>
-    <script src="assets/js/core/popper.min.js"></script>
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
     <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
+    <script type="text/javascript">
+        /* SCRIPT JQUERY PARA TROCAR DE COR NAVBAR */
+        $(window).scroll(function () {
+            if ($(this).scrollTop() > 50) {
+                $('.navbar').css("background-color", "#edecec")
+            } else {
+                $('.navbar').css("background-color", "transparent")
+            }
+        });
+    </script>
 
 
     <!--     Fonts and icons     -->
@@ -102,6 +109,10 @@
     <script src="angular-app/Views/controlPanel/controlpanelcontroller.js"></script>
     <script src="angular-app/Views/profile/profileController.js"></script>
     <script src="angular-app/Views/main/maincontroller.js"></script>
+
+    <!--   Core JS Files
+    <script src="assets/js/core/jquery.min.js"></script>-->
+    <script src="assets/js/core/popper.min.js"></script>
 
     <script src="assets/js/bootstrap-material-design.js"></script>
 
