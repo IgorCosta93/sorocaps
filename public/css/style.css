@@ -18,6 +18,10 @@ header{
   position: static;
 }
 
+h1#header{
+  margin-top: -5%;
+}
+
 div#produtosHeader{
   height: 350px;
 }
@@ -35,13 +39,52 @@ div#gestaoQHeader{
 }
 
 div#left {
-    display: block;
-    width: 400px;
-    float: left;
+    display : block;
+    width   : 400px;
+    float   : left;
 }
 
 div#right {
-    display: block;
-    width: 600px;
-    float: right;
+    display : block;
+    width   : 600px;
+    float   : right;
+}
+
+div#section-left{
+  margin-top  : 3%;
+  margin-left : 2%;
+  margin-right: 9%;
+}
+
+div#section-right{
+  width: 60%;
+}
+
+h5#h5Gestao{
+  text-align: justify;
+}
+
+img#gestaoQ{
+  width         : 300px;
+  height        : 250px;
+  margin-bottom : 12%;
+  box-shadow    : 0 14px 28px rgba(0, 0, 0, 0.25), 10px 10px 10px rgba(0, 0, 0, 0.22);
+}
+
+img#quemS{
+  width         : 320px;
+  height        : 280px;
+  margin-bottom : 35%;
+  box-shadow    : 0 14px 28px rgba(0, 0, 0, 0.25), 10px 10px 10px rgba(0, 0, 0, 0.22);
+}
+
+div#section-left-contato{
+  margin-top  : 3%;
+  margin-left : 2%;
+  margin-right: 9%;
+  width: 40%;
+}
+
+div#section-right-contato{
+  width: 40%;
 }

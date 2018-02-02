@@ -64,6 +64,18 @@ function config($httpProvider, $routeProvider) {
         restricted  : false
       }
     })
+    .when('/quemSomos',{
+      templateUrl   : 'angular-app/Views/quemSomos/quemSomos.html',
+      access        : {
+        restricted  : false
+      }
+    })
+    .when('/contato',{
+      templateUrl   : 'angular-app/Views/contato/contato.html',
+      access        : {
+        restricted  : false
+      }
+    })
     .otherwise({
       redirectTo: '/'
     });
