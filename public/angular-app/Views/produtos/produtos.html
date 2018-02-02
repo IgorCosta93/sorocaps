@@ -20,6 +20,7 @@
       <div class="section text-center">
             <div class="row">
                 <div class="col-md-8 ml-auto mr-auto">
+                  
                     <!--<h2 class="title">Produtos em Destaque</h2>
                     <h5 class="description">A empresa oferece excelência em sua linha de produtos, que passam por um rigoroso controle de qualidade, obtendo a certificação da ANVISA e sempre se atualizando com as exigências de todos os demais órgãos reguladores.</h5>-->
                 </div>
@@ -31,7 +32,7 @@
 
                 <div id="produtos" class="col-md-4">
                   <div class="info">
-                    <a href="#"><img id="produtosD" src="_imagens/produtos/vit_k2.jpg" alt="Thumbnail Image" class="img-raised w3-border w3-padding img-fluid"></a>
+                    <a href="#"><img id="produtosD" src="_imagens/produtos/vit_k2.jpg" alt="Thumbnail Image" class="img-raised w3-border w3-padding img-fluid" data-toggle="modal" data-target="#myModal" readonly="true"></a>
                     <!--<h4 class="info-title">Free Chat</h4>-->
                     <br>
                   </div>
@@ -532,6 +533,23 @@
             </div>
         </div>
 
+        <div id="myModal" class="modal fade" role="dialog">
+          <div class="modal-dialog">
 
+            <!-- Modal content-->
+            <div class="modal-content">
+              <div class="modal-header">
+                <button type="button" class="close" data-dismiss="modal">&times;</button>
+                <h4 class="modal-title">Informações</h4>
+              </div>
+              <div class="modal-body">
+                <p>Which how many people would you like to talk?</p>
+              </div>
+              <div class="modal-footer">
+                <button type="button" class="btn btn-success" data-dismiss="modal" ng-click="">OK</button>
+              </div>
+            </div>
+          </div>
+        </div>
     </div>
 </div>
