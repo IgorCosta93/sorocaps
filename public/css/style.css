@@ -94,3 +94,7 @@ div#section-left-contato{
 div#section-right-contato{
   width: 40%;
 }
+
+.dialogdemoThemeInheritance .container {
+  text-align: center;
+}
